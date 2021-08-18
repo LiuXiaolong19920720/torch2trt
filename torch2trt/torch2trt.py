@@ -612,6 +612,7 @@ def tensorrt_converter(method, is_real=True, enabled=True, imports=[]):
     try:
         method_impl = eval('copy.deepcopy(module.%s)' % qual_name)
     except:
+        print("qual_name: ", qual_name, " enabled = False")
         enabled = False
     
     def register_converter(converter):
