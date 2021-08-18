@@ -17,3 +17,4 @@ __pycache__/
 *.pth
 docs/converters.md
 site
+.idea/
