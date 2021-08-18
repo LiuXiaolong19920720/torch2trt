@@ -608,7 +608,9 @@ def tensorrt_converter(method, is_real=True, enabled=True, imports=[]):
         module, module_name, qual_name = get_module_qualname(method)
     else:
         module, module_name, qual_name = importlib.import_module(method.__module__), method.__module__, method.__qualname__
-        
+
+    print("module, module_name, qual_name: ", module, module_name, qual_name)
+
     try:
         method_impl = eval('copy.deepcopy(module.%s)' % qual_name)
     except:
