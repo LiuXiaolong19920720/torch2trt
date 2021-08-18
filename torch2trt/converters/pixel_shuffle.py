@@ -5,6 +5,9 @@ from torch2trt.module_test import add_module_test
 
 @tensorrt_converter('torch.nn.functional.pixel_shuffle')
 def convert_pixel_shuffle(ctx):
+    """
+    reference: https://github.com/NVIDIA/TensorRT/issues/1393
+    """
     input = ctx.method_args[0]
     upscale_factor = ctx.method_args[0]
     input_trt = add_missing_trt_tensors(ctx.network, [input])[0]
