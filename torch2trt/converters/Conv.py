@@ -13,11 +13,11 @@ def convert_Conv_trt7(ctx):
     input_dim = input.dim() - 2
 
     kernel_size = module.kernel_size
-    if not isinstance(kernel_size, tuple):
+    if not isinstance(kernel_size, tuple) and not isinstance(kernel_size, list):
         kernel_size = (kernel_size, ) * input_dim
 
     stride = module.stride
-    if not isinstance(stride, tuple):
+    if not isinstance(stride, tuple) and not isinstance(stride, list):
         stride = (stride, ) * input_dim
 
     padding = module.padding

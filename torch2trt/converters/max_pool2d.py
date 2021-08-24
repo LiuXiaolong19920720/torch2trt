@@ -18,7 +18,7 @@ def convert_max_pool2d(ctx):
     output = ctx.method_return
 
     # get kernel size
-    if not isinstance(kernel_size, tuple):
+    if not isinstance(kernel_size, tuple) and not isinstance(kernel_size, list):
         kernel_size = (kernel_size, ) * 2
 
     # get stride
